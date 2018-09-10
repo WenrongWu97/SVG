@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SVG</title>
+</head>
+<body>
+  <svg id="MySVG" width="205px" height="220px" style="border: 1px solid red;">
+
+    <!--surrounding border-->
+
+    <rect x="0" y="0" width="205" height="220" style="fill: rgb(199, 240, 185);"></rect>
+
+    <!--surrounding border-->
+
+    <!--Hat Start-->        
+
+    <rect x="78" y="10" width="44" height="70" style="fill: green;"></rect>
+
+    <ellipse cx="100" cy="20" rx="67" ry="12" stroke="white" stroke-width="0.5" fill="green"></ellipse>  
+
+    <!--Hat End-->
+
+    <!--Left ear-->
+
+    <ellipse cx="55" cy="70" rx="25" ry="25" stroke="black" stroke-width="2" fill="white"></ellipse>
+
+    <!--Right ear-->
+
+    <ellipse cx="145" cy="70" rx="25" ry="25" stroke="black" stroke-width="2" fill="white"></ellipse>
+
+    <!--Face-->
+
+    <circle cx="100" cy="105" r="50" stroke="black" stroke-width="2" fill="pink"></circle>
+
+    <!--Left Eye-->
+
+    <ellipse cx="75" cy="95" rx="15" ry="15" style="fill:white;stroke:black;stroke-width:2"></ellipse>
+
+    <!--Left Eye ball-->
+
+    <ellipse cx="75" cy="95" rx="5" ry="5" style="fill:black;">
+
+      <animate attributeName="cx" attributeType="XML" from="75" to="85" id="Left1" repeatCount="1" begin="0s;Left5.end" dur="0.5s"></animate>
+
+      <set attributeName="cx" attributeType="XML" to="85" begin="Left1.end"></set>
+      
+      <animateTransform attributeName="transform" type="rotate" id="Left2" from="0 75 95" to="360 75 95" begin="Left1.end" dur="1s" repeatCount="3"></animateTransform>
+
+      <animate attributeName="cx" attributeType="XML" from="85" to="65" id="Left3" begin="Left2.end" dur="0.5s"></animate>
+
+      <set attributeName="cx" attributeType="XML" to="65" begin="Left3.end"></set>
+
+      <animateTransform attributeName="transform" type="rotate" id="Left4" from="360 75 95" to="0 75 95" begin="Left3.end" dur="1s" repeatCount="3"></animateTransform>
+
+      <animate attributeName="cx" attributeType="XML" from="65" to="75" id="Left5" begin="Left4.end" dur="0.5s"></animate>
+
+      <set attributeName="cx" attributeType="XML" to="75" begin="Left4.end" ></set>
+
+    </ellipse>
+
+    <!--Right Eye-->
+
+    <ellipse cx="125" cy="95" rx="15" ry="15" style="fill:white;stroke:black;stroke-width:2"></ellipse>
+
+    <!--Right Eye ball-->
+
+    <ellipse cx="125" cy="95" rx="5" ry="5" style="fill:black;">
+                
+      <animate attributeName="cx" attributeType="XML" from="125" to="135" id="Right1" repeatCount="1" begin="0s;Right5.end" dur="0.5s"></animate>
+
+      <set attributeName="cx" attributeType="XML" to="135" begin="Right1.end"></set>
+
+      <animateTransform attributeName="transform" type="rotate" id="Right2" from="0 125 95" to="360 125 95" begin="Right1.end" dur="1s" repeatCount="3"></animateTransform>
+
+      <animate attributeName="cx" attributeType="XML" from="135" to="115" id="Right3" begin="Right2.end" dur="0.5s"></animate>
+
+      <set attributeName="cx" attributeType="XML" to="115" begin="Right3.end"></set>
+
+      <animateTransform attributeName="transform" type="rotate" id="Right4" from="360 125 95" to="0 125 95" begin="Right3.end" dur="1s" repeatCount="3"></animateTransform>
+
+      <animate attributeName="cx" attributeType="XML" from="115" to="125" id="Right5" begin="Right4.end" dur="0.5s"></animate>
+
+      <set attributeName="cx" attributeType="XML" to="125" begin="Right4.end"></set>
+
+    </ellipse>
+
+    <!--Mouth start-->
+
+    <clipPath id="cut-off-bottom">
+
+      <rect x="70" y="135" width="60" height="11">
+
+        <animate attributeName="y" attributeType="XML" from="135" to="125" id="MouthClipAnimation1" begin="0;MouthClipAnimation3.end+3" dur="1s"></animate>
+
+        <animate attributeName="height" attributeType="XML" from="11" to="22" id="MouthClipAnimation2" begin="0;MouthClipAnimation4.end+3" dur="1s"></animate>
+
+        <set attributeName="y" attributeType="XML" to="125" begin="MouthClipAnimation1.end-0.1"></set>
+
+        <set attributeName="height" attributeType="XML" to="22" begin="MouthClipAnimation2.end-0.1"></set>
+
+        <animate attributeName="y" attributeType="XML" from="125" to="135" id="MouthClipAnimation3" begin="MouthClipAnimation1.end+3" dur="1s"></animate>
+
+        <animate attributeName="height" attributeType="XML" from="22" to="11" id="MouthClipAnimation4" begin="MouthClipAnimation2.end+3" dur="1s"></animate>
+
+        <set attributeName="y" attributeType="XML" to="135" begin="MouthClipAnimation3.end-0.1"></set>
+
+        <set attributeName="height" attributeType="XML" to="11" begin="MouthClipAnimation4.end-0.1"></set>
+
+      </rect>
+
+    </clipPath>
+
+    <ellipse cx="100" cy="125" rx="30" ry="20" clip-path="url(#cut-off-bottom)" style="fill:white;stroke:black;stroke-width:2">
+      
+      <animate attributeName="cy" attributeType="XML" from="125" to="135" id="MouthEllipseAnimation1" begin="0;MouthEllipseAnimation4.end+3" dur="1s"></animate>
+
+      <animate attributeName="rx" attributeType="XML" from="30" to="8" id="MouthEllipseAnimation2" begin="0;MouthEllipseAnimation5.end+3" dur="1s"></animate>
+
+      <animate attributeName="ry" attributeType="XML" from="20" to="8" id="MouthEllipseAnimation3" begin="0;MouthEllipseAnimation6.end+3" dur="1s"></animate>
+
+      <set attributeName="cy" attributeType="XML" to="135" begin="MouthEllipseAnimation1.end-0.1"></set>
+
+      <set attributeName="rx" attributeType="XML" to="8" begin="MouthEllipseAnimation2.end-0.1"></set>
+
+      <set attributeName="ry" attributeType="XML" to="8" begin="MouthEllipseAnimation3.end-0.1"></set>
+ 
+      <animate attributeName="cy" attributeType="XML" from="135" to="125" id="MouthEllipseAnimation4" begin="MouthEllipseAnimation1.end+3" dur="1s"></animate>
+      
+      <animate attributeName="rx" attributeType="XML" from="8" to="30" id="MouthEllipseAnimation5" begin="MouthEllipseAnimation2.end+3" dur="1s"></animate>
+
+      <animate attributeName="ry" attributeType="XML" from="8" to="20" id="MouthEllipseAnimation6" begin="MouthEllipseAnimation3.end+3" dur="1s"></animate>
+
+      <set attributeName="cy" attributeType="XML" to="125" begin="MouthEllipseAnimation4.end-0.1"></set>
+
+      <set attributeName="rx" attributeType="XML" to="30" begin="MouthEllipseAnimation5.end-0.1"></set>
+
+      <set attributeName="ry" attributeType="XML" to="20" begin="MouthEllipseAnimation6.end-0.1"></set>
+
+    </ellipse>
+
+    <!--Mouth End-->
+
+    <!--Nose-->
+
+    <polygon points="100,110 85,120 115,120" style="fill: black;"></polygon>
+
+    <!--Divider-->
+
+    <!--Box Anmation-->
+
+    <rect x="0" y="165" width="14" height="14" stroke-width="2" fill="brown">
+
+      <animate attributeName="width" attributeType="XML" from="0" to="210" id="leftToRight" begin="0;bottomToTop.end" dur="1s"></animate>
+
+      <set attributeName="width" attributeType="XML" to="14" begin="leftToRight.end-0.2"></set>
+
+      <set attributeName="x" attributeType="XML" to="191" begin="leftToRight.end-0.2"></set>
+
+      <animate attributeName="height" attributeType="XML" from="14" to="55" id="topToBottom" begin="leftToRight.end" dur="1s"></animate>
+
+      <set attributeName="height" attributeType="XML" to="14" begin="topToBottom.end-0.2"></set>
+
+      <set attributeName="y" attributeType="XML" to="206" begin="topToBottom.end-0.2"></set>
+
+      <animate attributeName="width" attributeType="XML" from="0" to="210" id="rightToLeft" begin="topToBottom.end" dur="1s"></animate>
+
+      <animate attributeName="x" attributeType="XML" from="206" to="0" id="rightToLeft" begin="topToBottom.end" dur="1s"></animate>
+
+      <set attributeName="width" attributeType="XML" to="14" begin="rightToLeft.end-0.2"></set>
+
+      <set attributeName="x" attributeType="XML" to="0" begin="rightToLeft.end-0.2"></set>
+
+      <animate attributeName="height" attributeType="XML" from="14" to="55" id="bottomToTop" begin="rightToLeft.end" dur="1s"></animate>
+
+      <animate attributeName="y" attributeType="XML" from="206" to="165" id="bottomToTop" begin="rightToLeft.end" dur="1s"></animate>
+
+      <set attributeName="height" attributeType="XML" to="14" begin="bottomToTop.end-0.2"></set>
+
+      <set attributeName="y" attributeType="XML" to="165" begin="bottomToTop.end-0.2"></set>
+
+    </rect>
+
+    <line x1="0" y1="165" x2="205" y2="165" style="stroke:red;stroke-width:1"></line>
+
+    <text x="30" y="200" font-family="Comic Sans MS" fill="Blue" font-size="12px">A coder can be creative</text>
+
+  </svg>
+</body>
+</html>
